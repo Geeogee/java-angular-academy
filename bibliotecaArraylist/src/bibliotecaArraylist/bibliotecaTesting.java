@@ -27,7 +27,6 @@ public class bibliotecaTesting {
 	public static void main(String args[]) {
 		
 		Biblioteca biblioteca = new Biblioteca();
-		Scanner action = new Scanner(System.in);
 		Scanner input = new Scanner(System.in);
 		String firstname;
 		String lastname;
@@ -39,7 +38,9 @@ public class bibliotecaTesting {
 
 		do {
 			printMenu();
-			select = action.nextInt();
+			select = input.nextInt();
+			input.nextLine();
+			
 			switch(select) {
 				case 1:
 					System.out.println("Inserisci il nome:");
@@ -52,8 +53,9 @@ public class bibliotecaTesting {
 				case 2:
 					System.out.println("Inserisci il nome del libro: ");
 					bookName = input.nextLine();
-					System.out.println("Insertisci il codice del libro (3 cifre):");
+					System.out.println("Inserisci il codice del libro:");
 					bookCode = input.nextInt();
+					input.nextLine();
 					biblioteca.addBook(bookName, bookCode);
 					break;
 				
@@ -62,6 +64,7 @@ public class bibliotecaTesting {
 					lastname = input.nextLine();
 					System.out.println("Inserisci il codice del libro da prendere in prestito:");
 					bookCode = input.nextInt();
+					input.nextLine();
 					biblioteca.borrowBook(bookCode, lastname);
 					break;
 				
